@@ -1,0 +1,10 @@
+$bg-color: #f5f1ed;
+
+$primary-text: #08090a;
+$secondary-text: lighten(
+  $color: $primary-text,
+  $amount: 60%,
+);
+
+$primary-color: #454ade;
+$secondary-color: #e63462;

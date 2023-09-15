@@ -1,0 +1,101 @@
+@import "../global";
+
+@mixin interactive($bg) {
+  background-color: darken($color: $bg, $amount: 10%);
+}
+
+@mixin button($bg: $primary-color) {
+  cursor: pointer;
+  background-color: $bg;
+  color: white;
+  font-weight: 300;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: 0.3s;
+  @media (hover: hover) {
+    &:hover {
+      @include interactive($bg);
+    }
+  }
+  &:active {
+    @include interactive($bg);
+    scale: 0.9;
+    filter: saturate(80%);
+  }
+}
+@mixin longButton($bg: $primary-color) {
+  @include button($bg);
+  padding: 0.5rem 1.5rem;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(185, 185, 185, 0.596);
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 5px;
+  overflow: hidden;
+  //----Card Image
+  &__img {
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+  //----Card Body
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  &__price {
+    color: $secondary-text;
+  }
+  //----Card control buttons
+  &__addButton {
+    @include longButton();
+  }
+  &__changeButton {
+    @include button();
+    height: 2.2rem;
+    aspect-ratio: 1/1;
+  }
+  &__removeButton {
+    @include longButton($secondary-color);
+  }
+
+  .card__actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  //Amount display
+  &__amount {
+    &Actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    &Text {
+      font-weight: 300;
+    }
+    &Number {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+  }
+}

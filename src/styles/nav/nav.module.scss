@@ -1,0 +1,74 @@
+//Styles for NavBar, NavLink
+
+@import "../global";
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+
+  padding: 0.5rem 1rem;
+
+  background-color: white;
+  box-shadow: 0 0 10px rgba(185, 185, 185, 0.596);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+
+  margin-right: auto;
+}
+
+.nav__link {
+  position: relative;
+  color: $secondary-text;
+  text-decoration: none;
+
+  transition: 0.3s;
+
+  &::after {
+    display: block;
+    content: attr(title);
+    font-weight: 600;
+    height: 1px;
+    color: transparent;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  &_active {
+    color: $primary-text;
+    letter-spacing: 1px;
+    font-weight: 600;
+
+    &::first-letter {
+      color: $secondary-color;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $primary-text;
+      &::after {
+        width: 70%;
+      }
+    }
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    transition: 0.3s;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 0rem;
+    height: 3px;
+    border-radius: 20px;
+    background-color: $secondary-color;
+  }
+}

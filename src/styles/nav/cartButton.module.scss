@@ -1,0 +1,60 @@
+@import "../global";
+
+@mixin interactive($bg: $primary-color) {
+  border: 2px solid $bg;
+  background-color: $bg;
+  svg {
+    fill: white;
+  }
+}
+
+.cartButton {
+  position: relative;
+
+  $size: 3rem;
+
+  background-color: transparent;
+  border: 2px solid $primary-color;
+
+  border-radius: 50%;
+
+  width: $size;
+  height: $size;
+  padding: 4px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+  svg {
+    fill: $primary-color;
+  }
+
+  //Interactions
+  @media (hover: hover) {
+    &:hover {
+      @include interactive();
+    }
+  }
+  &:active {
+    @include interactive();
+  }
+
+  // Amount indicator
+  &__indicator {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -25%);
+
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+
+    background-color: $secondary-color;
+    color: white;
+    font-size: 0.85rem;
+  }
+}
