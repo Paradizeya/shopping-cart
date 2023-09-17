@@ -1,14 +1,18 @@
 import styles from "_styles/storePage/storeItem.module.scss";
+import useCartStore from "../../stores/useCartStore";
 
 type Props = {
   id: number;
   name: string;
   price: number;
   imgUrl: string;
+  amount: number;
 };
 
-const StoreItem = ({ name, price, imgUrl }: Props) => {
-  const TEST_amount = 1;
+const StoreItem = ({ id, name, price, imgUrl, amount }: Props) => {
+  const { increaseCartAmount, decreaseCartAmount, removeFromCart } =
+    useCartStore();
+
   return (
     <article className={styles.card}>
       {/* Card image */}
@@ -22,26 +26,52 @@ const StoreItem = ({ name, price, imgUrl }: Props) => {
         </div>
         {/* Actions [Add] [Remove] [Less - | More +] */}
         <div className={styles.card__actions}>
-          {TEST_amount === 0 ? (
+          {amount === 0 ? (
             // Add button
-            <button className={styles.card__addButton}>+ Add to Cart</button>
+            <button
+              className={styles.card__addButton}
+              onClick={() => {
+                increaseCartAmount(id);
+              }}
+            >
+              + Add to Cart
+            </button>
           ) : (
             <>
               {/* --- Buttons (- / +) and display Amount --- */}
               <div className={styles.card__amountActions}>
-                <button className={styles.card__changeButton}>-</button>
+                <button
+                  className={styles.card__changeButton}
+                  onClick={() => {
+                    decreaseCartAmount(id);
+                  }}
+                >
+                  -
+                </button>
 
                 <div className={styles.card__amountText}>
-                  <span className={styles.card__amountNumber}>
-                    {TEST_amount}
-                  </span>{" "}
-                  in cart
+                  <span className={styles.card__amountNumber}>{amount}</span> in
+                  cart
                 </div>
 
-                <button className={styles.card__changeButton}>+</button>
+                <button
+                  className={styles.card__changeButton}
+                  onClick={() => {
+                    increaseCartAmount(id);
+                  }}
+                >
+                  +
+                </button>
               </div>
               {/* Remove button */}
-              <button className={styles.card__removeButton}>Remove</button>
+              <button
+                className={styles.card__removeButton}
+                onClick={() => {
+                  removeFromCart(id);
+                }}
+              >
+                Remove
+              </button>
             </>
           )}
         </div>
