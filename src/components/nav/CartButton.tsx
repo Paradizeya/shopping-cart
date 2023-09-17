@@ -1,8 +1,11 @@
 type Props = {};
 
 import styles from "_styles/nav/cartButton.module.scss";
+import useCartStore from "../../stores/useCartStore";
 
 const CartButton = ({}: Props) => {
+  const cartAmount = useCartStore((state) => state.cartAmount());
+
   return (
     <button className={styles.cartButton}>
       <svg
@@ -44,7 +47,9 @@ const CartButton = ({}: Props) => {
           ></path>{" "}
         </g>
       </svg>
-      <div className={styles.cartButton__indicator}>99</div>
+      {cartAmount !== 0 && (
+        <div className={styles.cartButton__indicator}>{cartAmount}</div>
+      )}
     </button>
   );
 };
