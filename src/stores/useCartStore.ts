@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 
 type CartItem = {
   id: number;
@@ -16,58 +17,124 @@ type ShoppingCart = {
   getCartItemAmount: (id: number) => number;
 };
 
-const useCartStore = create<ShoppingCart>((set, get) => ({
-  cartAmount: () => {
-    return get().cartItems.reduce((accum, item) => {
-      return accum + item.amount;
-    }, 0);
-  },
-  cartItems: [],
+const useCartStore = create<ShoppingCart>()(
+  devtools(
+    persist(
+      (set, get) => ({
+        cartAmount: () => {
+          return get().cartItems.reduce((accum, item) => {
+            return accum + item.amount;
+          }, 0);
+        },
+        cartItems: [],
 
-  increaseCartAmount: (id: number) => {
-    if (get().cartItems.find((item) => item.id === id) == null) {
-      set({
-        cartItems: [...get().cartItems, { id, amount: 1 }],
-      });
-    } else {
-      set({
-        cartItems: get().cartItems.map((item: CartItem) => {
-          if (item.id === id) {
-            return { ...item, amount: item.amount + 1 };
+        increaseCartAmount: (id: number) => {
+          if (get().cartItems.find((item) => item.id === id) == null) {
+            set({
+              cartItems: [...get().cartItems, { id, amount: 1 }],
+            });
           } else {
-            return item;
+            set({
+              cartItems: get().cartItems.map((item: CartItem) => {
+                if (item.id === id) {
+                  return { ...item, amount: item.amount + 1 };
+                } else {
+                  return item;
+                }
+              }),
+            });
           }
-        }),
-      });
-    }
-  },
+        },
 
-  decreaseCartAmount: (id: number) => {
-    if (get().cartItems.find((item) => item.id === id)?.amount === 1) {
-      set({
-        cartItems: get().cartItems.filter((item) => item.id !== id),
-      });
-    } else {
-      set({
-        cartItems: get().cartItems.map((item: CartItem) => {
-          if (item.id === id) {
-            return { ...item, amount: item.amount - 1 };
+        decreaseCartAmount: (id: number) => {
+          if (get().cartItems.find((item) => item.id === id)?.amount === 1) {
+            set({
+              cartItems: get().cartItems.filter((item) => item.id !== id),
+            });
           } else {
-            return item;
+            set({
+              cartItems: get().cartItems.map((item: CartItem) => {
+                if (item.id === id) {
+                  return { ...item, amount: item.amount - 1 };
+                } else {
+                  return item;
+                }
+              }),
+            });
           }
-        }),
-      });
-    }
-  },
+        },
 
-  removeFromCart: (id: number) =>
-    set({
-      cartItems: get().cartItems.filter((item) => item.id !== id),
-    }),
+        removeFromCart: (id: number) =>
+          set({
+            cartItems: get().cartItems.filter((item) => item.id !== id),
+          }),
 
-  getCartItemAmount: (id: number) => {
-    return get().cartItems.find((cartItem) => cartItem.id === id)?.amount || 0;
-  },
-}));
+        getCartItemAmount: (id: number) => {
+          return (
+            get().cartItems.find((cartItem) => cartItem.id === id)?.amount || 0
+          );
+        },
+      }),
+      {
+        name: "shoppingCartStorage",
+      }
+    )
+  )
+);
+
+//Without persist
+// const useCartStore = create<ShoppingCart>((set, get) => ({
+//   cartAmount: () => {
+//     return get().cartItems.reduce((accum, item) => {
+//       return accum + item.amount;
+//     }, 0);
+//   },
+//   cartItems: [],
+
+//   increaseCartAmount: (id: number) => {
+//     if (get().cartItems.find((item) => item.id === id) == null) {
+//       set({
+//         cartItems: [...get().cartItems, { id, amount: 1 }],
+//       });
+//     } else {
+//       set({
+//         cartItems: get().cartItems.map((item: CartItem) => {
+//           if (item.id === id) {
+//             return { ...item, amount: item.amount + 1 };
+//           } else {
+//             return item;
+//           }
+//         }),
+//       });
+//     }
+//   },
+
+//   decreaseCartAmount: (id: number) => {
+//     if (get().cartItems.find((item) => item.id === id)?.amount === 1) {
+//       set({
+//         cartItems: get().cartItems.filter((item) => item.id !== id),
+//       });
+//     } else {
+//       set({
+//         cartItems: get().cartItems.map((item: CartItem) => {
+//           if (item.id === id) {
+//             return { ...item, amount: item.amount - 1 };
+//           } else {
+//             return item;
+//           }
+//         }),
+//       });
+//     }
+//   },
+
+//   removeFromCart: (id: number) =>
+//     set({
+//       cartItems: get().cartItems.filter((item) => item.id !== id),
+//     }),
+
+//   getCartItemAmount: (id: number) => {
+//     return get().cartItems.find((cartItem) => cartItem.id === id)?.amount || 0;
+//   },
+// }));
 
 export default useCartStore;
