@@ -13,6 +13,7 @@ type ShoppingCart = {
   increaseCartAmount: (id: number) => void;
   decreaseCartAmount: (id: number) => void;
   removeFromCart: (id: number) => void;
+  getCartItemAmount: (id: number) => number;
 };
 
 const useCartStore = create<ShoppingCart>((set, get) => ({
@@ -63,6 +64,10 @@ const useCartStore = create<ShoppingCart>((set, get) => ({
     set({
       cartItems: get().cartItems.filter((item) => item.id !== id),
     }),
+
+  getCartItemAmount: (id: number) => {
+    return get().cartItems.find((cartItem) => cartItem.id === id)?.amount || 0;
+  },
 }));
 
 export default useCartStore;

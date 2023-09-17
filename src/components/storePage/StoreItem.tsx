@@ -6,12 +6,13 @@ type Props = {
   name: string;
   price: number;
   imgUrl: string;
-  amount: number;
 };
 
-const StoreItem = ({ id, name, price, imgUrl, amount }: Props) => {
+const StoreItem = ({ id, name, price, imgUrl }: Props) => {
   const { increaseCartAmount, decreaseCartAmount, removeFromCart } =
     useCartStore();
+
+  const amount = useCartStore((state) => state.getCartItemAmount(id));
 
   return (
     <article className={styles.card}>
