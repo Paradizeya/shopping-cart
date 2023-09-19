@@ -2,16 +2,16 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "_src/*": [
+      "@src/*": [
         "./src/*"
       ],
-      "_styles/*": [
+      "@styles/*": [
         "./src/styles/*"
       ],
-      "_components/*": [
+      "@components/*": [
         "./src/components/*"
       ],
-      "_stores/*": [
+      "@stores/*": [
         "./src/stores/*"
       ]
     }

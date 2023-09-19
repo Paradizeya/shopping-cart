@@ -1,5 +1,5 @@
 import { NavLink as NavLinkR } from "react-router-dom";
-import styles from "_styles/nav/nav.module.scss";
+import styles from "@styles/nav/nav.module.scss";
 
 type Props = { children: React.ReactNode; path: "/" | "/store" | "/about" };
 

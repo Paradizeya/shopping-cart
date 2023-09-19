@@ -1,4 +1,4 @@
-import styles from "_styles/storePage/storeItem.module.scss";
+import styles from "@styles/storePage/storeItem.module.scss";
 import StoreItemActions from "./StoreItemActions";
 
 type Props = {

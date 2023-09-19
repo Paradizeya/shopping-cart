@@ -1,14 +1,24 @@
 type Props = {};
 
-import styles from "_styles/nav/cartButton.module.scss";
+import styles from "@styles/nav/cartButton.module.scss";
 import useCartStore from "../../stores/useCartStore";
 
 const CartButton = ({}: Props) => {
-  const cartAmount = useCartStore((state) => state.cartAmount());
-  const openCart = useCartStore((state) => state.openCart());
+  const cartAmount = useCartStore((state) => state.cartAmount);
+  const openCart = useCartStore((state) => state.openCart);
+  //const { cartAmount, openCart } = useCartStore();
+
+  const clickHandler = () => {
+    openCart();
+  };
 
   return (
-    <button className={styles.cartButton} onClick={() => openCart}>
+    <button
+      className={styles.cartButton}
+      onClick={() => {
+        clickHandler();
+      }}
+    >
       <svg
         viewBox="-4.8 -4.8 33.60 33.60"
         fill="none"
@@ -48,8 +58,8 @@ const CartButton = ({}: Props) => {
           ></path>{" "}
         </g>
       </svg>
-      {cartAmount !== 0 && (
-        <div className={styles.cartButton__indicator}>{cartAmount}</div>
+      {cartAmount() !== 0 && (
+        <div className={styles.cartButton__indicator}>{cartAmount()}</div>
       )}
     </button>
   );

@@ -2,7 +2,7 @@
 import items from "../data/items.json";
 
 import StoreItem from "../components/storePage/StoreItem";
-import styles from "_styles/storePage/storePage.module.scss";
+import styles from "@styles/storePage/storePage.module.scss";
 
 type Props = {};
 

@@ -1,4 +1,4 @@
-import styles from "_styles/storePage/storeItem.module.scss";
+import styles from "@styles/storePage/storeItem.module.scss";
 import useCartStore from "../../stores/useCartStore";
 
 type Props = {
@@ -6,8 +6,11 @@ type Props = {
 };
 
 const StoreItemActions = ({ id }: Props) => {
-  const { increaseCartAmount, decreaseCartAmount, removeFromCart } =
-    useCartStore();
+  const increaseCartAmount = useCartStore((state) => state.increaseCartAmount);
+  const decreaseCartAmount = useCartStore((state) => state.decreaseCartAmount);
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  // const { increaseCartAmount, decreaseCartAmount, removeFromCart } =
+  //   useCartStore();
 
   const amount = useCartStore((state) => state.getCartItemAmount(id));
 
