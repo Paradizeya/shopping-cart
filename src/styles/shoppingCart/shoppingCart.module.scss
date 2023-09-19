@@ -1,11 +1,23 @@
-@import "global";
+@import "../global";
 
 .wrapper {
   display: flex;
   flex-direction: column;
   position: fixed;
+  top: 0;
+  right: 0;
   z-index: 100;
-  background-color: $primary-color;
+  background-color: $secondary-text;
   width: 300px;
   height: 100svh;
+  animation: 0.3s slide-in;
+}
+
+@keyframes slide-in {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
 }

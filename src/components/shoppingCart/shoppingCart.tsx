@@ -1,9 +1,28 @@
-import styles from "_styles/nav/shoppingCart.module.scss";
+import styles from "@styles/shoppingCart/shoppingCart.module.scss";
+import useCartStore from "../../stores/useCartStore";
 
 type Props = {};
 
-const shoppingCart = ({}: Props) => {
-  return <aside className={styles.wrapper}>shoppingCart</aside>;
+const ShoppingCart = ({}: Props) => {
+  console.log("render Cart");
+  const closeCart = useCartStore((state) => state.closeCart);
+
+  const clickHandler = () => {
+    closeCart();
+  };
+
+  return (
+    <aside className={styles.wrapper}>
+      <button
+        onClick={() => {
+          clickHandler();
+        }}
+      >
+        Close
+      </button>
+      shoppingCart
+    </aside>
+  );
 };
 
-export default shoppingCart;
+export default ShoppingCart;
