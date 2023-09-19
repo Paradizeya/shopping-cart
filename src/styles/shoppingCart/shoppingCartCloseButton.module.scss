@@ -1,0 +1,32 @@
+@import "../global";
+
+.cart__closeButton {
+  $buttonSize: 1.75rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+
+  width: fit-content;
+  height: fit-content;
+
+  cursor: pointer;
+
+  svg {
+    height: $buttonSize;
+    width: $buttonSize;
+    fill: $secondary-text;
+    transition: 0.3s;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      svg {
+        fill: $secondary-color;
+      }
+    }
+  }
+}

@@ -4,7 +4,9 @@ import styles from "@styles/nav/cartButton.module.scss";
 import useCartStore from "../../stores/useCartStore";
 
 const CartButton = ({}: Props) => {
-  const cartAmount = useCartStore((state) => state.cartAmount);
+  //THIS will change each time amount changes.
+  //If written like in line below this one, rerender won't happen.
+  const { cartAmount } = useCartStore();
   const openCart = useCartStore((state) => state.openCart);
   //const { cartAmount, openCart } = useCartStore();
 

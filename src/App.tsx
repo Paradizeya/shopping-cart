@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import StorePage from "./pages/StorePage";
 import AboutPage from "./pages/AboutPage";
 import NavBar from "./components/nav/NavBar";
-import ShoppingCartWrapper from "./components/shoppingCart/ShoppingCartWrapper";
+import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 
 function App() {
   console.log("render App");
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="wrapper">
       <NavBar />
-      <ShoppingCartWrapper />
+      <ShoppingCart />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
