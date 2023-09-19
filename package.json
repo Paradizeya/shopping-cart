@@ -10,6 +10,9 @@
       ],
       "_components/*": [
         "./src/components/*"
+      ],
+      "_stores/*": [
+        "./src/stores/*"
       ]
     }
   },
