@@ -1,41 +1,38 @@
+import styles from "@styles/shoppingCart/shoppingCartBody.module.scss";
+
 import useCartStore from "../../stores/useCartStore";
+import useShopItems from "../../stores/useShopItems";
+import ShoppingCartItem from "./ShoppingCartItem";
 
 type Props = {};
 
 const ShoppingCartBody = ({}: Props) => {
-  const { cartAmount } = useCartStore();
+  const { cartItems } = useCartStore();
+  const { getShopItem } = useShopItems();
+  const total = cartItems.reduce((accum, item) => {
+    return accum + item.amount * (getShopItem(item.id)?.price || 0);
+  }, 0);
+
   console.log("render Cart Body");
 
   return (
-    <>
-      <div>Total Items amount: {cartAmount()}!</div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum eos harum
-        veritatis maxime. Quaerat laudantium amet incidunt quia tenetur? Magnam
-        quod beatae excepturi doloremque corrupti velit? Numquam nesciunt
-        laboriosam nulla nemo assumenda quisquam perferendis consectetur
-        adipisci, quo nostrum beatae exercitationem facere inventore deleniti
-        velit reiciendis, vel corporis blanditiis itaque magnam? Doloribus natus
-        obcaecati dolorum animi impedit dignissimos nobis ipsum voluptatibus
-        voluptatum quasi, sapiente similique tempore architecto officia unde
-        deleniti ea consequatur accusantium exercitationem, saepe iure eum
-        debitis placeat. Itaque, corrupti quidem quam perspiciatis quo esse
-        assumenda illum quae, molestiae possimus velit! Odit accusamus tempora
-        nesciunt corrupti suscipit! Magni, aut voluptates? Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Cum eos harum veritatis maxime.
-        Quaerat laudantium amet incidunt quia tenetur? Magnam quod beatae
-        excepturi doloremque corrupti velit? Numquam nesciunt laboriosam nulla
-        nemo assumenda quisquam perferendis consectetur adipisci, quo nostrum
-        beatae exercitationem facere inventore deleniti velit reiciendis, vel
-        corporis blanditiis itaque magnam? Doloribus natus obcaecati dolorum
-        animi impedit dignissimos nobis ipsum voluptatibus voluptatum quasi,
-        sapiente similique tempore architecto officia unde deleniti ea
-        consequatur accusantium exercitationem, saepe iure eum debitis placeat.
-        Itaque, corrupti quidem quam perspiciatis quo esse assumenda illum quae,
-        molestiae possimus velit! Odit accusamus tempora nesciunt corrupti
-        suscipit! Magni, aut voluptates?
+    <div className={styles.wrapper}>
+      <div className={styles.cartItems}>
+        {cartItems.map((cartItem) => {
+          const item = getShopItem(cartItem.id);
+          if (item) {
+            return (
+              <ShoppingCartItem
+                key={item.id}
+                {...item}
+                amount={cartItem.amount}
+              />
+            );
+          } else return;
+        })}
       </div>
-    </>
+      <div className={styles.total}>Total : ${total}</div>
+    </div>
   );
 };
 

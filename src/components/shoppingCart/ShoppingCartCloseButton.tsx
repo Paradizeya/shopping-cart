@@ -9,8 +9,6 @@ const ShoppingCartCloseButton = ({}: Props) => {
     closeCart();
   };
 
-  console.log("render Cart Close Button");
-
   return (
     <button
       className={styles.cart__closeButton}
