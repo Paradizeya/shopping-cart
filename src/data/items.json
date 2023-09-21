@@ -7,13 +7,13 @@
   },
   {
     "id": 1,
-    "name": "Bananas",
+    "name": "Banana",
     "price": 1.99,
     "imgUrl": "/imgs/bananas.webp"
   },
   {
     "id": 2,
-    "name": "Cacti",
+    "name": "Cactus",
     "price": 2.49,
     "imgUrl": "/imgs/cactus.webp"
   },
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "name": "Phones",
+    "name": "Phone",
     "price": 6.66,
     "imgUrl": "/imgs/phones.webp"
   },
@@ -49,7 +49,7 @@
   },
   {
     "id": 8,
-    "name": "Water Melons",
+    "name": "Water Melon",
     "price": 5.99,
     "imgUrl": "/imgs/melon.webp"
   }
