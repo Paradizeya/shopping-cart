@@ -9,10 +9,8 @@ import { useEffect } from "react";
 type Props = {};
 
 const ShoppingCart = ({}: Props) => {
-  console.log("render Cart Wrapper");
-
   const isOpen = useCartStore((state) => state.isOpen);
-  //Hide scroll of body
+  //Hide scroll on body
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -37,6 +35,7 @@ const ShoppingCart = ({}: Props) => {
               clickHandler();
             }}
           ></div>
+
           <aside className={`${styles.cart}`}>
             <div className={styles.cart__header}>
               <h2 className={styles.cart__title}>Cart</h2>

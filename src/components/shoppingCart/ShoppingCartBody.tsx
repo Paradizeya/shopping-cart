@@ -13,8 +13,6 @@ const ShoppingCartBody = ({}: Props) => {
     return accum + item.amount * (getShopItem(item.id)?.price || 0);
   }, 0);
 
-  console.log("render Cart Body");
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.cartItems}>
