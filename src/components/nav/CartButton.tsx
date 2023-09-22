@@ -6,7 +6,7 @@ import useCartStore from "../../stores/useCartStore";
 const CartButton = ({}: Props) => {
   //THIS will change each time amount changes.
   //If written like in line below this one, rerender won't happen.
-  const { cartAmount } = useCartStore();
+  const { getCartAmount } = useCartStore();
   const openCart = useCartStore((state) => state.openCart);
   //const { cartAmount, openCart } = useCartStore();
 
@@ -60,8 +60,8 @@ const CartButton = ({}: Props) => {
           ></path>{" "}
         </g>
       </svg>
-      {cartAmount() !== 0 && (
-        <div className={styles.cartButton__indicator}>{cartAmount()}</div>
+      {getCartAmount() !== 0 && (
+        <div className={styles.cartButton__indicator}>{getCartAmount()}</div>
       )}
     </button>
   );

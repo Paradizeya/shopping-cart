@@ -3,6 +3,7 @@ import styles from "@styles/shoppingCart/shoppingCartBody.module.scss";
 import useCartStore from "../../stores/useCartStore";
 import useShopItems from "../../stores/useShopItems";
 import ShoppingCartItem from "./ShoppingCartItem";
+import formatCurrency from "../../helpers/formatCurrency";
 
 type Props = {};
 
@@ -12,8 +13,6 @@ const ShoppingCartBody = ({}: Props) => {
   const total = cartItems.reduce((accum, item) => {
     return accum + item.amount * (getShopItem(item.id)?.price || 0);
   }, 0);
-
-  console.log("render Cart Body");
 
   return (
     <div className={styles.wrapper}>
@@ -31,7 +30,7 @@ const ShoppingCartBody = ({}: Props) => {
           } else return;
         })}
       </div>
-      <div className={styles.total}>Total : ${total}</div>
+      <div className={styles.total}>Total: {formatCurrency(total)}</div>
     </div>
   );
 };

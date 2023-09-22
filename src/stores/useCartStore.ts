@@ -7,7 +7,7 @@ type CartItem = {
 };
 
 type ShoppingCart = {
-  cartAmount: () => number;
+  getCartAmount: () => number;
   cartItems: CartItem[];
   isOpen: boolean;
   openCart: () => void;
@@ -23,7 +23,7 @@ const useCartStore = create<ShoppingCart>()(
     persist(
       (set, get) => ({
         // Total Items in cart
-        cartAmount: () => {
+        getCartAmount: () => {
           return get().cartItems.reduce((accum, item) => {
             return accum + item.amount;
           }, 0);

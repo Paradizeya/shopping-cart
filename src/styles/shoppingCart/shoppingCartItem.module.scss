@@ -1,45 +1,47 @@
 @import "../global";
 
 .cartItem {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 33% 2fr auto;
+  gap: 1rem;
   align-items: center;
+  justify-content: space-between;
 }
 
-.cartItem__header {
+.cartItem__start {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
   .cartItem__img {
-    height: 100px;
-    width: 150px;
+    max-width: 100%;
+    aspect-ratio: 1.2/1;
     object-fit: cover;
     object-position: center;
   }
-  .cartItem__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+}
 
-    .cartItem__name {
-      font-weight: 600;
-    }
-    .cartItem__amount {
-      font-size: 0.85rem;
-    }
-    .cartItem__amount,
-    .cartItem__price {
-      color: $secondary-text;
-      font-weight: 300;
-    }
+.cartItem__middle {
+  display: flex;
+  flex-direction: column;
+  .cartItem__name {
+    font-weight: 600;
+    word-break: break-word;
+  }
+  .cartItem__amount {
+    font-size: 0.85rem;
+  }
+  .cartItem__amount,
+  .cartItem__price {
+    color: $secondary-text;
+    font-weight: 300;
   }
 }
 
-.cartItem__body {
+.cartItem__end {
+  justify-self: end;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  .cartItem__totalPrice {
-  }
+  gap: 0.5rem;
   .cartItem__removeButton {
     background-color: transparent;
     cursor: pointer;

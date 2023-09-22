@@ -7,8 +7,6 @@ import NavBar from "./components/nav/NavBar";
 import ShoppingCart from "./components/shoppingCart/ShoppingCart";
 
 function App() {
-  console.log("render App");
-
   return (
     <div className="wrapper">
       <NavBar />

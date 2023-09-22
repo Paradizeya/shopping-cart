@@ -1,5 +1,6 @@
 import styles from "@styles/shoppingCart/shoppingCartItem.module.scss";
 import useCartStore from "../../stores/useCartStore";
+import formatCurrency from "../../helpers/formatCurrency";
 
 type Props = {
   id: number;
@@ -14,7 +15,7 @@ const ShoppingCartItem = ({ id, name, price, imgUrl, amount }: Props) => {
 
   return (
     <div className={styles.cartItem}>
-      <div className={styles.cartItem__header}>
+      <div className={styles.cartItem__start}>
         {/* Item img */}
         <img
           className={styles.cartItem__img}
@@ -22,18 +23,21 @@ const ShoppingCartItem = ({ id, name, price, imgUrl, amount }: Props) => {
           alt=""
           loading="lazy"
         />
-        {/* Item Name x amount */}
-        <div className={styles.cartItem__info}>
-          <span className={styles.cartItem__name}>
-            {name} <span className={styles.cartItem__amount}>x{amount}</span>
-          </span>
-          <span className={styles.cartItem__price}>${price}</span>
-        </div>
       </div>
 
-      <div className={styles.cartItem__body}>
+      {/* Item Name x amount */}
+      <div className={styles.cartItem__middle}>
+        <span className={styles.cartItem__name}>
+          {name} <span className={styles.cartItem__amount}>x{amount}</span>
+        </span>
+        <span className={styles.cartItem__price}>{formatCurrency(price)}</span>
+      </div>
+
+      <div className={styles.cartItem__end}>
         {/* Item total Price */}
-        <span className={styles.cartItem__totalPrice}>${amount * price}</span>
+        <span className={styles.cartItem__totalPrice}>
+          {formatCurrency(amount * price)}
+        </span>
         {/* Delete button */}
         <button
           className={styles.cartItem__removeButton}
