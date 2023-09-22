@@ -1,10 +1,10 @@
 import NavLink from "./NavLink";
-import CartButton from "./CartButton";
-import "@styles/nav/nav.scss";
+import CartButton from "../CartButton/CartButton";
+import "@styles/nav.scss";
 
 type Props = {};
 
-const NavBar = ({}: Props) => {
+const Nav = ({}: Props) => {
   return (
     <header className="header">
       <nav className="header_nav">
@@ -17,4 +17,4 @@ const NavBar = ({}: Props) => {
   );
 };
 
-export default NavBar;
+export default Nav;

@@ -1,4 +1,4 @@
-import styles from "@styles/storePage/storeItem.module.scss";
+import styles from "./storeItem.module.scss";
 import useCartStore from "../../stores/useCartStore";
 
 type Props = {

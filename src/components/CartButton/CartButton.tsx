@@ -1,6 +1,6 @@
 type Props = {};
 
-import styles from "@styles/nav/cartButton.module.scss";
+import styles from "./cartButton.module.scss";
 import useCartStore from "../../stores/useCartStore";
 
 const CartButton = ({}: Props) => {

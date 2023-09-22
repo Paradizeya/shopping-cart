@@ -1,6 +1,7 @@
-import StoreItem from "../components/storePage/StoreItem";
-import styles from "@styles/storePage/storePage.module.scss";
+import StoreItem from "../components/StoreItem/StoreItem";
 import useShopItems from "../stores/useShopItems";
+
+import "@styles/storePage.scss";
 
 type Props = {};
 
@@ -8,16 +9,18 @@ const StorePage = ({}: Props) => {
   const items = useShopItems((state) => state.ShopItems);
 
   return (
-    <section className={styles.storePage}>
-      <h1 className="pageTitle">
-        <span>C</span>ool <span>S</span>tore
-      </h1>
-      <div className={styles.wrapper}>
+    <>
+      <div className="page__header">
+        <h1 className="page__title">
+          <span>C</span>ool <span>S</span>tore
+        </h1>
+      </div>
+      <div className="page__body storePage_body">
         {items.map((item) => {
           return <StoreItem key={item.id} {...item} />;
         })}
       </div>
-    </section>
+    </>
   );
 };
 

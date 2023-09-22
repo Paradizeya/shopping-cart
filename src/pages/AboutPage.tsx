@@ -2,11 +2,14 @@ type Props = {};
 
 const AboutPage = ({}: Props) => {
   return (
-    <section>
-      <h1 className="pageTitle">
-        <span>A</span>bout
-      </h1>
-    </section>
+    <>
+      <div className="page__header">
+        <h1 className="page__title">
+          <span>A</span>bout
+        </h1>
+      </div>
+      <div className="page__body"></div>
+    </>
   );
 };
 
