@@ -3,6 +3,7 @@ import styles from "@styles/shoppingCart/shoppingCartBody.module.scss";
 import useCartStore from "../../stores/useCartStore";
 import useShopItems from "../../stores/useShopItems";
 import ShoppingCartItem from "./ShoppingCartItem";
+import formatCurrency from "../../helpers/formatCurrency";
 
 type Props = {};
 
@@ -29,7 +30,7 @@ const ShoppingCartBody = ({}: Props) => {
           } else return;
         })}
       </div>
-      <div className={styles.total}>Total : ${total}</div>
+      <div className={styles.total}>Total: {formatCurrency(total)}</div>
     </div>
   );
 };
