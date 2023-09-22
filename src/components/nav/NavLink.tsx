@@ -1,17 +1,14 @@
 import { NavLink as NavLinkR } from "react-router-dom";
-import styles from "@styles/nav/nav.module.scss";
 
-type Props = { children: React.ReactNode; path: "/" | "/store" | "/about" };
+type Props = { children: React.ReactNode; to: "/" | "/store" | "/about" };
 
-const NavLink = ({ children, path }: Props) => {
+const NavLink = ({ children, to }: Props) => {
   return (
     <NavLinkR
       className={({ isActive }) =>
-        isActive
-          ? `${styles.nav__link} ${styles.nav__link_active}`
-          : `${styles.nav__link}`
+        isActive ? "header__navLink header__navLink_active" : "header__navLink"
       }
-      to={path}
+      to={to}
     >
       {children}
     </NavLinkR>

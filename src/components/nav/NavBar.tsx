@@ -1,17 +1,16 @@
 import NavLink from "./NavLink";
 import CartButton from "./CartButton";
-
-import styles from "@styles/nav/nav.module.scss";
+import "@styles/nav/nav.scss";
 
 type Props = {};
 
 const NavBar = ({}: Props) => {
   return (
-    <header className={styles.wrapper}>
-      <nav className={styles.nav}>
-        <NavLink path="/">Home</NavLink>
-        <NavLink path="/store">Store</NavLink>
-        <NavLink path="/about">About</NavLink>
+    <header className="header">
+      <nav className="header_nav">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/store">Store</NavLink>
+        <NavLink to="/about">About</NavLink>
       </nav>
       <CartButton />
     </header>
