@@ -1,3 +1,5 @@
+import "@styles/homePage.scss";
+
 type Props = {};
 
 const HomePage = ({}: Props) => {

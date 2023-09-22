@@ -1,3 +1,5 @@
+import "@styles/aboutPage.scss";
+
 type Props = {};
 
 const AboutPage = ({}: Props) => {

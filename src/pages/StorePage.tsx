@@ -1,7 +1,6 @@
+import "@styles/storePage.scss";
 import StoreItem from "../components/storeItem/StoreItem";
 import useShopItems from "../stores/useShopItems";
-
-import "@styles/storePage.scss";
 
 type Props = {};
 
