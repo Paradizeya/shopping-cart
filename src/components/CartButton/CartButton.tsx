@@ -10,17 +10,8 @@ const CartButton = ({}: Props) => {
   const openCart = useCartStore((state) => state.openCart);
   //const { cartAmount, openCart } = useCartStore();
 
-  const clickHandler = () => {
-    openCart();
-  };
-
   return (
-    <button
-      className={styles.cartButton}
-      onClick={() => {
-        clickHandler();
-      }}
-    >
+    <button className={styles.cartButton} onClick={() => openCart()}>
       <svg
         viewBox="-4.8 -4.8 33.60 33.60"
         fill="none"

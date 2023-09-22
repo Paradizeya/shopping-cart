@@ -1,8 +1,10 @@
-import styles from "@styles/shoppingCart/shoppingCartBody.module.scss";
+import styles from "./shoppingCart.module.scss";
+import ShoppingCartItem from "../shoppingCartItem/ShoppingCartItem";
 
 import useCartStore from "../../stores/useCartStore";
 import useShopItems from "../../stores/useShopItems";
-import ShoppingCartItem from "./ShoppingCartItem";
+import useGetShoppingCatTotal from "../../hooks/useGetShoppingCatTotal";
+
 import formatCurrency from "../../helpers/formatCurrency";
 
 type Props = {};
@@ -10,12 +12,10 @@ type Props = {};
 const ShoppingCartBody = ({}: Props) => {
   const { cartItems } = useCartStore();
   const { getShopItem } = useShopItems();
-  const total = cartItems.reduce((accum, item) => {
-    return accum + item.amount * (getShopItem(item.id)?.price || 0);
-  }, 0);
+  const total = useGetShoppingCatTotal();
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.cartWrapper}>
       <div className={styles.cartItems}>
         {cartItems.map((cartItem) => {
           const item = getShopItem(cartItem.id);

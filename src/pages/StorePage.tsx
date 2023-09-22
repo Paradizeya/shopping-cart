@@ -1,4 +1,4 @@
-import StoreItem from "../components/StoreItem/StoreItem";
+import StoreItem from "../components/storeItem/StoreItem";
 import useShopItems from "../stores/useShopItems";
 
 import "@styles/storePage.scss";

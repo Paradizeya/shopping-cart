@@ -1,5 +1,5 @@
 import NavLink from "./NavLink";
-import CartButton from "../CartButton/CartButton";
+import CartButton from "../cartButton/CartButton";
 import "@styles/nav.scss";
 
 type Props = {};

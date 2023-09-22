@@ -1,21 +1,13 @@
 import useCartStore from "../../stores/useCartStore";
-import styles from "@styles/shoppingCart/shoppingCartCloseButton.module.scss";
+import styles from "./CloseButton.module.scss";
 
 type Props = {};
 
-const ShoppingCartCloseButton = ({}: Props) => {
+const CloseButton = ({}: Props) => {
   const closeCart = useCartStore((state) => state.closeCart);
-  const clickHandler = () => {
-    closeCart();
-  };
 
   return (
-    <button
-      className={styles.cart__closeButton}
-      onClick={() => {
-        clickHandler();
-      }}
-    >
+    <button className={styles.cart__closeButton} onClick={() => closeCart()}>
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier"></g>
         <g
@@ -32,4 +24,4 @@ const ShoppingCartCloseButton = ({}: Props) => {
   );
 };
 
-export default ShoppingCartCloseButton;
+export default CloseButton;

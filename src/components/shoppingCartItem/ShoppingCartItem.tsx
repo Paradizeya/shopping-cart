@@ -1,4 +1,4 @@
-import styles from "@styles/shoppingCart/shoppingCartItem.module.scss";
+import styles from "./shoppingCartItem.module.scss";
 import useCartStore from "../../stores/useCartStore";
 import formatCurrency from "../../helpers/formatCurrency";
 
