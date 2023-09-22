@@ -1,4 +1,4 @@
-import useCartStore from "../../stores/useCartStore";
+import useCartStore from "../../../stores/useCartStore";
 import styles from "./CloseButton.module.scss";
 
 type Props = {};
