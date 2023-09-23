@@ -10,7 +10,7 @@ const ShoppingCartBody = ({}: Props) => {
   const { cartItems, cartTotal } = useGetShoppingCartContext();
 
   return (
-    <div className={styles.cartWrapper}>
+    <div className={styles.cartBody}>
       <div className={styles.cartItems}>
         {cartItems.map((item) => {
           return <ShoppingCartItem key={item.id} {...item} />;
