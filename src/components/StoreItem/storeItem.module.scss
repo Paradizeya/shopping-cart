@@ -1,35 +1,6 @@
 @import "/src/styles/global";
 
-@mixin interactive($bg) {
-  background-color: darken($color: $bg, $amount: 10%);
-}
-
-@mixin button($bg: $primary-color) {
-  cursor: pointer;
-  background-color: $bg;
-  color: white;
-  font-weight: 300;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  transition: 0.3s;
-  @media (hover: hover) {
-    &:hover {
-      @include interactive($bg);
-    }
-  }
-  &:active {
-    @include interactive($bg);
-    scale: 0.9;
-    filter: saturate(80%);
-  }
-}
-@mixin longButton($bg: $primary-color) {
-  @include button($bg);
-  padding: 0.5rem 1.5rem;
-}
-
-.card {
+.storeItem {
   background-color: white;
   box-shadow: 0 0 10px rgba(185, 185, 185, 0.596);
 
@@ -40,25 +11,24 @@
     border-radius: 5px;
     overflow: hidden;
   }
+}
 
-  &__header {
-    height: 200px;
-  }
-  //----Card Image
+.storeItemHeader {
+  height: 200px;
   &__img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
   }
-  //----Card Body
-  &__body {
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    height: 100%;
-    grid-auto-rows: 1fr 2fr;
-  }
+}
+
+.storeItemBody {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  height: 100%;
+  grid-auto-rows: 1fr 2fr;
   &__info {
     display: flex;
     justify-content: space-between;
@@ -71,6 +41,28 @@
   &__price {
     color: $secondary-text;
   }
+}
+
+.storeItemActions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  &__amount {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    &Text {
+      font-weight: 300;
+    }
+    &Number {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+  }
+
   //----Card control buttons
   &__addButton {
     @include longButton();
@@ -82,28 +74,5 @@
   }
   &__removeButton {
     @include longButton($secondary-color);
-  }
-
-  .card__actions {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-  }
-  //Amount display
-  &__amount {
-    &Actions {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    &Text {
-      font-weight: 300;
-    }
-    &Number {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
   }
 }

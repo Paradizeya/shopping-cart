@@ -10,10 +10,12 @@ type Props = {
 
 const StoreItemBody = ({ id, name, price }: Props) => {
   return (
-    <div className={styles.card__body}>
-      <div className={styles.card__info}>
-        <h2 className={styles.card__title}>{name}</h2>
-        <span className={styles.card__price}>{formatCurrency(price)}</span>
+    <div className={styles.storeItemBody}>
+      <div className={styles.storeItemBody__info}>
+        <h2 className={styles.storeItemBody__title}>{name}</h2>
+        <span className={styles.storeItemBody__price}>
+          {formatCurrency(price)}
+        </span>
       </div>
 
       {/* Actions [Add] [Remove] [Less - | More +] */}

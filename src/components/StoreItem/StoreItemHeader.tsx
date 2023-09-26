@@ -6,8 +6,13 @@ type Props = {
 
 const StoreItemHeader = ({ imgUrl }: Props) => {
   return (
-    <div className={styles.card__header}>
-      <img className={styles.card__img} src={imgUrl} alt="" loading="lazy" />
+    <div className={styles.storeItemHeader}>
+      <img
+        className={styles.storeItemHeader__img}
+        src={imgUrl}
+        alt=""
+        loading="lazy"
+      />
     </div>
   );
 };

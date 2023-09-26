@@ -15,11 +15,11 @@ const StoreItemActions = ({ id }: Props) => {
   const amount = useCartStore((state) => state.getCartItemAmount(id));
 
   return (
-    <div className={styles.card__actions}>
+    <div className={styles.storeItemActions}>
       {amount === 0 ? (
         // Add button
         <button
-          className={styles.card__addButton}
+          className={styles.storeItemActions__addButton}
           onClick={() => {
             increaseCartAmount(id);
           }}
@@ -29,10 +29,10 @@ const StoreItemActions = ({ id }: Props) => {
       ) : (
         <>
           {/* --- Buttons (- / +) and display Amount --- */}
-          <div className={styles.card__amountActions}>
+          <div className={styles.storeItemActions__amount}>
             {/* LESS */}
             <button
-              className={styles.card__changeButton}
+              className={styles.storeItemActions__changeButton}
               onClick={() => {
                 decreaseCartAmount(id);
               }}
@@ -46,7 +46,7 @@ const StoreItemActions = ({ id }: Props) => {
             </div>
             {/* MORE */}
             <button
-              className={styles.card__changeButton}
+              className={styles.storeItemActions__changeButton}
               onClick={() => {
                 increaseCartAmount(id);
               }}
@@ -57,7 +57,7 @@ const StoreItemActions = ({ id }: Props) => {
 
           {/* Remove button */}
           <button
-            className={styles.card__removeButton}
+            className={styles.storeItemActions__removeButton}
             onClick={() => {
               removeFromCart(id);
             }}

@@ -1,12 +1,13 @@
-import styles from "./CloseButton.module.scss";
+import styles from "./DiscardButton.module.scss";
 
 type Props = {
-  eventHandler: () => void;
+  id: number;
+  eventHandler: (id: number) => void;
 };
 
-const CloseButton = ({ eventHandler }: Props) => {
+const DiscardButton = ({ id, eventHandler }: Props) => {
   return (
-    <button className={styles.closeButton} onClick={() => eventHandler()}>
+    <button className={styles.discardButton} onClick={() => eventHandler(id)}>
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier"></g>
         <g
@@ -23,4 +24,4 @@ const CloseButton = ({ eventHandler }: Props) => {
   );
 };
 
-export default CloseButton;
+export default DiscardButton;

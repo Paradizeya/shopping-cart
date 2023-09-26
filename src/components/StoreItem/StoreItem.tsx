@@ -11,7 +11,7 @@ type Props = {
 
 const StoreItem = ({ id, name, price, imgUrl }: Props) => {
   return (
-    <article className={styles.card}>
+    <article className={styles.storeItem}>
       <StoreItemHeader imgUrl={imgUrl} />
       <StoreItemBody id={id} name={name} price={price} />
     </article>

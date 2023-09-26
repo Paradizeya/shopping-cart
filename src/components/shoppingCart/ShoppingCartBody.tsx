@@ -11,12 +11,15 @@ const ShoppingCartBody = ({}: Props) => {
 
   return (
     <div className={styles.cartBody}>
-      <div className={styles.cartItems}>
+      <div className={styles.cartBody__items}>
         {cartItems.map((item) => {
           return <ShoppingCartItem key={item.id} {...item} />;
         })}
       </div>
-      <div className={styles.total}>Total: {formatCurrency(cartTotal)}</div>
+
+      <div className={styles.cartBody__total}>
+        Total: {formatCurrency(cartTotal)}
+      </div>
     </div>
   );
 };

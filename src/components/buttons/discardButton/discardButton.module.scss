@@ -1,17 +1,21 @@
 @import "/src/styles/global";
 
-.closeButton {
-  @include crossButton(1.75rem);
-  // $buttonSize: 1.75rem;
+.discardButton {
+  @include crossButtonSmall(0.75rem);
+  // $buttonSize: 0.75rem;
 
   // display: flex;
   // justify-content: center;
   // align-items: center;
 
   // background-color: transparent;
-  // border: none;
-
   // cursor: pointer;
+
+  // border: 1px solid $secondary-text;
+  // border-radius: 5px;
+  // transition: 0.3s;
+  // height: 2rem;
+  // width: 2rem;
 
   // svg {
   //   height: $buttonSize;
@@ -22,8 +26,10 @@
 
   // @media (hover: hover) {
   //   &:hover {
+  //     background-color: $secondary-color;
+  //     border: 1px solid $secondary-color;
   //     svg {
-  //       fill: $secondary-color;
+  //       fill: white;
   //     }
   //   }
   // }
