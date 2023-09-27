@@ -1,5 +1,5 @@
 import "@styles/aboutPage.scss";
-
+import LoadingPlaceholder from "../components/loadingPlaceholder/LoadingPlaceholder";
 type Props = {};
 
 const AboutPage = ({}: Props) => {
@@ -10,7 +10,9 @@ const AboutPage = ({}: Props) => {
           <span>A</span>bout
         </h1>
       </div>
-      <div className="page__body"></div>
+      <div className="page__body">
+        <LoadingPlaceholder>Test loading</LoadingPlaceholder>
+      </div>
     </>
   );
 };

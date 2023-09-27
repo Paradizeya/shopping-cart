@@ -22,6 +22,7 @@ body {
 
 //Shared pages styles
 .page {
+  margin-top: 1rem;
   @media (min-width: 350px) {
     margin: 1rem 8vw;
   }
@@ -38,4 +39,59 @@ body {
   }
   // &__body {
   // }
+}
+
+.loading {
+  height: 50svh;
+  font-size: 1.2rem;
+  color: $secondary-text;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &Animation {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    &__dot {
+      background: $secondary-text;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      transform-origin: 50% 100%;
+      animation: bounce 1s linear infinite;
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+    }
+  }
+
+  $bounce-size: 3rem;
+  @keyframes bounce {
+    from,
+    to {
+      transform: translateY(0) scale(1, 1);
+      animation-timing-function: ease-in;
+    }
+    45% {
+      transform: translateY($bounce-size) scale(1, 1);
+      animation-timing-function: linear;
+    }
+    50% {
+      transform: translateY($bounce-size) scale(1.5, 0.5);
+      animation-timing-function: linear;
+    }
+    55% {
+      transform: translateY($bounce-size) scale(1, 1);
+      animation-timing-function: ease-out;
+    }
+  }
 }

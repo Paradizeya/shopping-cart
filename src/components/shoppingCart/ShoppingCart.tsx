@@ -1,6 +1,11 @@
+import { lazy, Suspense } from "react";
+//const ShoppingCartHeader = lazy(() => import("./ShoppingCartHeader"));
+const ShoppingCartBody = lazy(() => import("./ShoppingCartBody"));
+
 import styles from "./shoppingCart.module.scss";
+import LoadingPlaceholder from "../loadingPlaceholder/LoadingPlaceholder";
 import ShoppingCartHeader from "./ShoppingCartHeader";
-import ShoppingCartBody from "./ShoppingCartBody";
+// import ShoppingCartBody from "./ShoppingCartBody";
 
 import useCartStore from "../../stores/useCartStore";
 import useHideScroll from "../../hooks/useHideScroll";
@@ -23,7 +28,13 @@ const ShoppingCart = ({}: Props) => {
           {/* Cart side-bar */}
           <aside className={`${styles.cart}`}>
             <ShoppingCartHeader />
-            <ShoppingCartBody />
+            <Suspense
+              fallback={
+                <LoadingPlaceholder>Looking for your cart</LoadingPlaceholder>
+              }
+            >
+              <ShoppingCartBody />
+            </Suspense>
           </aside>
         </>
       )}
