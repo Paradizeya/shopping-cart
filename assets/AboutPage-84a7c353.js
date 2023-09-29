@@ -1,0 +1,1 @@
+import{j as e,L as a}from"./index-3babd007.js";const l=({})=>e.jsxs(e.Fragment,{children:[e.jsx("div",{className:"page__header",children:e.jsxs("h1",{className:"page__title",children:[e.jsx("span",{children:"A"}),"bout"]})}),e.jsx("div",{className:"page__body",children:e.jsx(a,{children:"Nothing is actually loading here"})})]});export{l as default};
