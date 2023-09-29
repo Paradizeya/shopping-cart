@@ -1,0 +1,1 @@
+import{j as e}from"./index-140f6070.js";const a=({})=>e.jsxs(e.Fragment,{children:[e.jsx("div",{className:"page__header",children:e.jsxs("h1",{className:"page__title",children:[e.jsx("span",{children:"H"}),"ome"]})}),e.jsx("div",{className:"page__body"})]});export{a as default};
