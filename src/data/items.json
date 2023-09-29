@@ -3,54 +3,54 @@
     "id": 0,
     "name": "Books",
     "price": 99.99,
-    "imgUrl": "imgs/books.webp"
+    "imgUrl": "imgs/books.png"
   },
   {
     "id": 1,
     "name": "Banana",
     "price": 1.99,
-    "imgUrl": "imgs/bananas.webp"
+    "imgUrl": "imgs/bananas.png"
   },
   {
     "id": 2,
     "name": "Cactus",
     "price": 2.49,
-    "imgUrl": "imgs/cactus.webp"
+    "imgUrl": "imgs/cactus.png"
   },
   {
     "id": 3,
     "name": "Tea",
     "price": 7.49,
-    "imgUrl": "imgs/tea.webp"
+    "imgUrl": "imgs/tea.png"
   },
   {
     "id": 4,
     "name": "Phone",
     "price": 6.66,
-    "imgUrl": "imgs/phones.webp"
+    "imgUrl": "imgs/phones.png"
   },
   {
     "id": 5,
     "name": "Fanta",
     "price": 1.5,
-    "imgUrl": "imgs/fanta.webp"
+    "imgUrl": "imgs/fanta.png"
   },
   {
     "id": 6,
     "name": "Dinosaurs",
     "price": 0.99,
-    "imgUrl": "imgs/dinos.webp"
+    "imgUrl": "imgs/dinos.png"
   },
   {
     "id": 7,
     "name": "Wooden Figure",
     "price": 3.99,
-    "imgUrl": "imgs/figure.webp"
+    "imgUrl": "imgs/figure.png"
   },
   {
     "id": 8,
     "name": "Water Melon",
     "price": 5.99,
-    "imgUrl": "imgs/melon.webp"
+    "imgUrl": "imgs/melon.png"
   }
 ]

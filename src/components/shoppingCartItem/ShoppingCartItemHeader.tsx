@@ -1,4 +1,5 @@
 import styles from "./shoppingCartItem.module.scss";
+import ImageLoader from "../imageLoader/ImageLoader";
 
 type Props = {
   imgUrl: string;
@@ -7,12 +8,7 @@ type Props = {
 const ShoppingCartItemHeader = ({ imgUrl }: Props) => {
   return (
     <div className={styles.cartItemHeader}>
-      <img
-        className={styles.cartItemHeader__img}
-        src={imgUrl}
-        alt=""
-        loading="lazy"
-      />
+      <ImageLoader style={styles.cartItemHeader__img} src={imgUrl} />
     </div>
   );
 };

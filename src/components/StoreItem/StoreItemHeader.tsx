@@ -1,4 +1,5 @@
 import styles from "./storeItem.module.scss";
+import ImageLoader from "../imageLoader/ImageLoader";
 
 type Props = {
   imgUrl: string;
@@ -7,12 +8,7 @@ type Props = {
 const StoreItemHeader = ({ imgUrl }: Props) => {
   return (
     <div className={styles.storeItemHeader}>
-      <img
-        className={styles.storeItemHeader__img}
-        src={imgUrl}
-        alt=""
-        loading="lazy"
-      />
+      <ImageLoader style={styles.storeItemHeader__img} src={imgUrl} />
     </div>
   );
 };
