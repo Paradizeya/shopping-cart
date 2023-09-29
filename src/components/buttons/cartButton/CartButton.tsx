@@ -1,7 +1,7 @@
 type Props = {};
 
 import styles from "./cartButton.module.scss";
-import useCartStore from "../../../stores/useCartStore";
+import useCartStore from "@stores/useCartStore";
 
 const CartButton = ({}: Props) => {
   //THIS will change each time amount changes.
