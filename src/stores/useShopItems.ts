@@ -13,7 +13,7 @@ type ShopItems = {
   getShopItem: (id: number) => ShopItem | null;
 };
 
-const useShopItems = create<ShopItems>()((set, get) => ({
+const useShopItems = create<ShopItems>()((_set, get) => ({
   ShopItems: useGetShopItems(),
   getShopItem: (id: number) => {
     return get().ShopItems.find((item: ShopItem) => item.id === id) || null;
