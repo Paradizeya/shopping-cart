@@ -3,7 +3,7 @@
 .storePage_body {
   margin: 1rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
 
   @media (width < 734px) and (width > 551px) {

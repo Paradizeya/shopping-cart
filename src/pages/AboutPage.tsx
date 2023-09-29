@@ -11,7 +11,9 @@ const AboutPage = ({}: Props) => {
         </h1>
       </div>
       <div className="page__body">
-        <LoadingPlaceholder>Test loading</LoadingPlaceholder>
+        <LoadingPlaceholder>
+          Nothing is actually loading here
+        </LoadingPlaceholder>
       </div>
     </>
   );
